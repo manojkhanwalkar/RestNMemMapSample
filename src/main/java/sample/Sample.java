@@ -185,9 +185,10 @@ public class Sample {
 
             int count = incrementAndGetCount(request.getClientId(), id.getType(), id.getValue(),1);
             int max =  getMaxCount(request.getClientId(), id.getType());
+            int cumCount = getCumCount(request.getClientId(),id.getType(),id.getValue());
 
             //TODO - Add a function to get cumulative count from the clients list and use that in the calculation.
-            IdCount score = new IdCount(id,count*100/max);
+            IdCount score = new IdCount(id,(count+cumCount)*100/max);
             response.addScore(score);
 
         });
@@ -199,6 +200,37 @@ public class Sample {
     private int getMaxCount(String clientId, String type) {
         return maxCount.get(clientId).get(type);
     }
+
+    private int getCumCount(String clientId, String idType,String id) {
+
+        Map<String,Map<String,CumNCount>> client = clients.get(clientId);
+        if (client==null)
+        {
+            return 0;
+        }
+
+        Map<String,CumNCount> ids = client.get(idType);
+
+
+        if (ids==null)
+        {
+            return 0;
+        }
+
+        CumNCount locNCount  = ids.get(id);
+        if (locNCount==null)
+        {
+            return 0;
+        }
+        else
+        {
+            return locNCount.getCumulativeCount();
+        }
+
+
+
+    }
+
 
 
     static class Holder
