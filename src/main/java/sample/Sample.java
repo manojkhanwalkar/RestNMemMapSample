@@ -187,7 +187,6 @@ public class Sample {
             int max =  getMaxCount(request.getClientId(), id.getType());
             int cumCount = getCumCount(request.getClientId(),id.getType(),id.getValue());
 
-            //TODO - Add a function to get cumulative count from the clients list and use that in the calculation.
             IdCount score = new IdCount(id,(count+cumCount)*100/max);
             response.addScore(score);
 
