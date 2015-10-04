@@ -22,7 +22,7 @@
 
     <bean id="RestService" class="sample.RestService">
         <property name="name" value="RestService" />
-        <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMap/src/main/java/rest/configuration.yml" />
+        <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/rest/configuration.yml" />
 
     </bean>
 
