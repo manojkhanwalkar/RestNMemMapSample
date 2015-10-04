@@ -20,6 +20,12 @@
     </bean>
 
 
+   <!--     <bean id="webServiceClient" class="client.WSTester">
+            <property name="defaultUri" value="http://localhost:8080/WebService"/>
+        </bean> -->
+
+
+
     <bean id="RestService" class="sample.RestService">
         <property name="name" value="RestService" />
         <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/rest/configuration.yml" />
