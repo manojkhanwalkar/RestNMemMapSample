@@ -1,11 +1,13 @@
 package multi;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Created by mkhanwalkar on 10/11/15.
  */
 public class VClient {
 
-    ThreadLocal<VConnection> connections = new ThreadLocal<>();
+    ThreadLocal<WeakReference<VConnection>> connections = new ThreadLocal<>();
 
     public VClient()
     {
@@ -14,26 +16,31 @@ public class VClient {
 
     public void send(String s)
     {
-        VConnection connection = connections.get();
-        if (connection==null)
+        WeakReference<VConnection> refconnection = connections.get();
+        if (refconnection==null)
         {
-            connection = new VConnection();
-            connections.set(connection);
+            VConnection connection = new VConnection();
+            connections.set(new WeakReference<VConnection>(connection));
+            connection.send(s);
+
         }
 
-        connection.send(s);
+        refconnection.get().send(s);
+
     }
 
     public String recv()
     {
-        VConnection connection = connections.get();
-        if (connection==null)
+        WeakReference<VConnection> refconnection = connections.get();
+        if (refconnection==null)
         {
-            connection = new VConnection();
-            connections.set(connection);
+            VConnection connection = new VConnection();
+            connections.set(new WeakReference<VConnection>(connection));
+            connection.recv();
+
         }
 
-        return connection.recv();
+        return refconnection.get().recv();
 
     }
 

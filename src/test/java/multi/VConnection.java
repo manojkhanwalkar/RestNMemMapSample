@@ -29,4 +29,9 @@ public class VConnection {
         return "Response from server " + System.nanoTime();
     }
 
+    public void finalize()
+    {
+        destroy();
+    }
+
 }
