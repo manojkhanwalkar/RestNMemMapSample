@@ -9,6 +9,8 @@ package client;
 
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
+import flow.adapter.app2.App2Request;
+import flow.adapter.app2.App2Response;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -71,5 +73,12 @@ public class RestConnector  {
         return response1.getBody();
     }
 
+    public App2Response send(App2Request request)
+    {
+        HttpEntity<App2Request> requestEntity = new HttpEntity<>(request);
+        ResponseEntity<App2Response> response1 = restTemplate.exchange("http://" + host + ":" + port + "/app2", HttpMethod.POST, requestEntity, App2Response.class);
+
+        return response1.getBody();
+    }
 
 }

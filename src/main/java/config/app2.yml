@@ -1,0 +1,11 @@
+server:
+#  softNofileLimit: 1000
+#  hardNofileLimit: 1000
+  applicationConnectors:
+    - type: http
+      port: 12025
+  adminConnectors:
+    - type: http
+      port: 12091
+messages:
+  hello: Hello world!
