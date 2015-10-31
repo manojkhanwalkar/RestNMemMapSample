@@ -1,4 +1,4 @@
-package flow.facade;
+package flow.util;
 
 import javax.validation.constraints.NotNull;
 
