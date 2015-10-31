@@ -1,11 +1,11 @@
-package sample;
+package flow.workflow;
 
 import query.Request;
 import query.Response;
 
-public class Sample {
+public class WorkflowManager {
 
-    private Sample()
+    private WorkflowManager()
     {
 
     }
@@ -32,10 +32,10 @@ public class Sample {
 
     static class Holder
     {
-        static Sample factory = new Sample();
+        static WorkflowManager factory = new WorkflowManager();
     }
 
-    public static Sample getInstance()
+    public static WorkflowManager getInstance()
     {
         return Holder.factory;
 

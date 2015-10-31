@@ -3,7 +3,7 @@ package flow.facade;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import query.Request;
 import query.Response;
-import sample.Sample;
+import flow.workflow.WorkflowManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -26,7 +26,7 @@ public class SampleResource {
     @POST
     public Response sayHello(@Context HttpServletRequest hsReq, @Valid Request request) {
 
-        Sample sample = Sample.getInstance();
+        WorkflowManager sample = WorkflowManager.getInstance();
 
         Response response = sample.getScore(request);
 
