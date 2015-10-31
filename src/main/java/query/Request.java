@@ -7,30 +7,23 @@ import java.util.List;
 public class Request
 {
 
+Envelope envelope;
 
-    String clientId ;
+    Payload payload;
 
-    List<Identifier> identifiers = new ArrayList<>();
-    //NodeType type ;
-
-    public String getClientId() {
-        return clientId;
+    public Envelope getEnvelope() {
+        return envelope;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public void setEnvelope(Envelope envelope) {
+        this.envelope = envelope;
     }
 
-    public List<Identifier> getIdentifiers() {
-        return identifiers;
+    public Payload getPayload() {
+        return payload;
     }
 
-    public void setIdentifiers(List<Identifier> identifiers) {
-        this.identifiers = identifiers;
-    }
-
-    public void addIdentifier(Identifier identifier)
-    {
-        identifiers.add(identifier);
+    public void setPayload(Payload payload) {
+        this.payload = payload;
     }
 }

@@ -6,28 +6,13 @@ import java.util.List;
 
 public class Response {
 
-    String clientId ;
+    Payload payload;
 
-    List<IdCount> scores = new ArrayList<>();
-
-    public String getClientId() {
-        return clientId;
+    public Payload getPayload() {
+        return payload;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public List<IdCount> getScores() {
-        return scores;
-    }
-
-    public void setScores(List<IdCount> scores) {
-        this.scores = scores;
-    }
-
-    public void addScore(IdCount score)
-    {
-        scores.add(score);
+    public void setPayload(Payload payload) {
+        this.payload = payload;
     }
 }
