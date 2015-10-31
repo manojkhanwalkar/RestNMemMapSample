@@ -1,4 +1,4 @@
-package flow.adapter.app1;
+package flow.adapter.app2;
 
 import flow.adapter.Adapter;
 import query.Request;
