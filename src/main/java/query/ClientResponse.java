@@ -4,7 +4,7 @@ package query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientResponse {
+public class ClientResponse implements Response {
 
     Payload payload;
 

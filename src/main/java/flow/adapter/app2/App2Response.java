@@ -1,9 +1,11 @@
 package flow.adapter.app2;
 
+import query.Response;
+
 /**
  * Created by mkhanwalkar on 10/31/15.
  */
-public class App2Response {
+public class App2Response implements Response {
 
     String dummy ;
 

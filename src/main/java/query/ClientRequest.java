@@ -4,7 +4,7 @@ package query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientRequest
+public class ClientRequest implements Request
 {
 
 Envelope envelope;

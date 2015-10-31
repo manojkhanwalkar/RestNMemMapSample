@@ -1,9 +1,11 @@
 package flow.adapter.app1;
 
+import query.Request;
+
 /**
  * Created by mkhanwalkar on 10/31/15.
  */
-public class App1Request {
+public class App1Request implements Request {
 
     String dummy ;
 
