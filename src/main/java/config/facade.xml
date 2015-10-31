@@ -32,10 +32,6 @@
 
     </bean>
 
-    <bean id="SampleService" class="sample.SampleService">
-        <property name="name" value="SampleService" />
-
-    </bean>
 
 </beans>
 
