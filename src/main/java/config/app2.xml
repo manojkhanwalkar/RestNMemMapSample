@@ -26,7 +26,7 @@
 
 
 
-    <bean id="RestService" class="flow.facade.RestService">
+    <bean id="RestService" class="flow.facade.FacadeService">
         <property name="name" value="RestService" />
         <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/rest/configuration.yml" />
 

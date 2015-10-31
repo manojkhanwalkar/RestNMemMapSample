@@ -10,9 +10,6 @@
     <bean id="ServiceList" class="server.ServiceList">
         <property name="listServices">
             <list>
-           <!--     <ref bean="DBService" />
-                <ref bean="DBQueryTest" /> -->
-                <ref bean="SampleService" />
                 <ref bean="RestService" />
             </list>
         </property>
@@ -20,22 +17,14 @@
     </bean>
 
 
-   <!--     <bean id="webServiceClient" class="client.WSTester">
-            <property name="defaultUri" value="http://localhost:8080/WebService"/>
-        </bean> -->
 
 
-
-    <bean id="RestService" class="flow.facade.RestService">
+    <bean id="RestService" class="flow.app1.App1Service">
         <property name="name" value="RestService" />
-        <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/rest/configuration.yml" />
+        <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/config/app1.yml" />
 
     </bean>
 
-    <bean id="SampleService" class="sample.SampleService">
-        <property name="name" value="SampleService" />
-
-    </bean>
 
 </beans>
 

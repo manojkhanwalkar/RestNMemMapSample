@@ -7,6 +7,8 @@ package client;
  * and open the template in the editor.
  */
 
+import flow.adapter.app1.App1Request;
+import flow.adapter.app1.App1Response;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -61,6 +63,13 @@ public class RestConnector  {
         return response1.getBody();
     }
 
+    public App1Response send(App1Request request)
+    {
+        HttpEntity<App1Request> requestEntity = new HttpEntity<>(request);
+        ResponseEntity<App1Response> response1 = restTemplate.exchange("http://" + host + ":" + port + "/app1", HttpMethod.POST, requestEntity, App1Response.class);
+
+        return response1.getBody();
+    }
 
 
 }

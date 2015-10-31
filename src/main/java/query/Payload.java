@@ -1,5 +1,6 @@
 package query;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Map;
  */
 public class Payload {
 
-    Map<String,String>  propertyValues;
+    Map<String,String>  propertyValues = new HashMap<>();
 
     public Map<String, String> getPropertyValues() {
         return propertyValues;
@@ -15,5 +16,10 @@ public class Payload {
 
     public void setPropertyValues(Map<String, String> propertyValues) {
         this.propertyValues = propertyValues;
+    }
+
+    public void set(String key,String value)
+    {
+        propertyValues.put(key,value);
     }
 }

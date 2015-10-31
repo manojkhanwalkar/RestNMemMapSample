@@ -1,8 +1,8 @@
-package flow.facade;
+package flow.app1;
 
 import server.Service;
 
-public class RestService implements Service {
+public class App1Service implements Service {
 
 
 

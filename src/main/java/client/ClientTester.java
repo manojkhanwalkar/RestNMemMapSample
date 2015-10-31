@@ -27,10 +27,6 @@ public class ClientTester {
                 System.out.println(mapper.writeValueAsString(response));
 
 
-
-
-
-
     }
 
 }

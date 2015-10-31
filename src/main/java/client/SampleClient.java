@@ -1,5 +1,7 @@
 package client;
 
+import flow.adapter.app1.App1Request;
+import flow.adapter.app1.App1Response;
 import query.Request;
 import query.Response;
 
@@ -39,6 +41,22 @@ public class SampleClient {
     }
 
     public Response send( Request request) {
+
+        RestConnector connector = localConnector.get();
+        if (connector==null)
+        {
+            connector = new RestConnector(host, port);
+            connector.connect();
+            localConnector.set(connector);
+        }
+
+
+        return connector.send(request);
+
+    }
+
+
+    public App1Response send( App1Request request) {
 
         RestConnector connector = localConnector.get();
         if (connector==null)
