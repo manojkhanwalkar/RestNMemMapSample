@@ -4,8 +4,8 @@ import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
 import flow.adapter.app2.App2Request;
 import flow.adapter.app2.App2Response;
-import query.Request;
-import query.Response;
+import query.ClientRequest;
+import query.ClientResponse;
 
 /**
  * Created by mkhanwalkar on 7/25/15.
@@ -42,7 +42,7 @@ public class SampleClient {
         this.port = port;
     }
 
-    public Response send( Request request) {
+    public ClientResponse send( ClientRequest request) {
 
 /*        RestConnector connector = localConnector.get();
         if (connector==null)

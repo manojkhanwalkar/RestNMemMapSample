@@ -1,8 +1,8 @@
 package flow.facade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import query.Request;
-import query.Response;
+import query.ClientRequest;
+import query.ClientResponse;
 import flow.workflow.WorkflowManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,11 +24,11 @@ public class SampleResource {
     static ObjectMapper mapper = new ObjectMapper();
 
     @POST
-    public Response sayHello(@Context HttpServletRequest hsReq, @Valid Request request) {
+    public ClientResponse sayHello(@Context HttpServletRequest hsReq, @Valid ClientRequest request) {
 
         WorkflowManager sample = WorkflowManager.getInstance();
 
-        Response response = sample.getScore(request);
+        ClientResponse response = sample.getScore(request);
 
 
 

@@ -1,14 +1,13 @@
 package flow.workflow;
 
 import client.SampleClient;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
 import flow.adapter.app2.App2Request;
 import flow.adapter.app2.App2Response;
 import query.Payload;
-import query.Request;
-import query.Response;
+import query.ClientRequest;
+import query.ClientResponse;
 
 public class WorkflowManager {
 
@@ -20,8 +19,8 @@ public class WorkflowManager {
 
 
 
-    public Response getScore(Request request) {
-        Response response=new Response();
+    public ClientResponse getScore(ClientRequest request) {
+        ClientResponse response=new ClientResponse();
         Payload payload = new Payload();
 
         SampleClient client = SampleClient.getInstance();

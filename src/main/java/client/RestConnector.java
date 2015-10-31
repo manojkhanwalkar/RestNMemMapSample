@@ -15,8 +15,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import query.Request;
-import query.Response;
+import query.ClientRequest;
+import query.ClientResponse;
 
 public class RestConnector  {
 
@@ -57,10 +57,10 @@ public class RestConnector  {
         restTemplate = null;
     }
 
-    public Response send(Request request)
+    public ClientResponse send(ClientRequest request)
     {
-        HttpEntity<Request> requestEntity = new HttpEntity<>(request);
-        ResponseEntity<Response> response1 = restTemplate.exchange("http://" + host + ":" + port + "/sample", HttpMethod.POST, requestEntity, Response.class);
+        HttpEntity<ClientRequest> requestEntity = new HttpEntity<>(request);
+        ResponseEntity<ClientResponse> response1 = restTemplate.exchange("http://" + host + ":" + port + "/sample", HttpMethod.POST, requestEntity, ClientResponse.class);
 
         return response1.getBody();
     }

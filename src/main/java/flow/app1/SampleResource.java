@@ -3,9 +3,6 @@ package flow.app1;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
-import flow.workflow.WorkflowManager;
-import query.Request;
-import query.Response;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

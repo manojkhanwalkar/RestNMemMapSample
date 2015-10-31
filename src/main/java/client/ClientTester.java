@@ -1,9 +1,8 @@
 package client;
 
-import client.SampleClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import query.Request;
-import query.Response;
+import query.ClientRequest;
+import query.ClientResponse;
 
 /**
  * Created by mkhanwalkar on 7/26/15.
@@ -22,8 +21,8 @@ public class ClientTester {
         client.setPort(10025);
 
 
-                Request request = new Request();
-                Response response = client.send(request);
+                ClientRequest request = new ClientRequest();
+                ClientResponse response = client.send(request);
                 System.out.println(mapper.writeValueAsString(response));
 
 
