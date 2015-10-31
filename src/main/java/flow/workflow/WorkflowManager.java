@@ -12,6 +12,9 @@ import query.Payload;
 import query.ClientRequest;
 import query.ClientResponse;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class WorkflowManager {
 
     private WorkflowManager()
@@ -19,34 +22,32 @@ public class WorkflowManager {
 
     }
 
+    Map<String,Workflow> workflows = new HashMap<>();
+
+    public void register(String key, Workflow workflow)
+    {
+        workflows.put(key,workflow);
+    }
+
+    private String extractKey(ClientRequest request)
+    {
+        return request.getEnvelope().getRequestType() + "~" + request.getEnvelope().getCliendId();
+    }
+
+    public Workflow getWorkflow(ClientRequest request)
+    {
+
+        String key =  extractKey(request);
+        Workflow wf = workflows.get(key);
 
 
-
-    public ClientResponse getScore(ClientRequest request) {
-
-        System.out.println(request);
-
-        ClientResponse response=new ClientResponse();
-        Payload payload = new Payload();
-
-        Adapter adapter1 = new App1Adapter();
-        App1Response response1 = (App1Response) adapter1.send(request);
-
-        payload.set("App1Response",response1.getDummy() );
-
-        Adapter adapter2 = new App2Adapter();
-        App2Response response2 = (App2Response) adapter2.send(request);
-
-        payload.set("App1Response",response1.getDummy() );
-
-
-        payload.set("App2Response",response2.getDummy() );
-        response.setPayload(payload);
-
-
-        return response;
+        return wf;
 
     }
+
+
+
+
 
 
 

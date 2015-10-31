@@ -1,6 +1,9 @@
 package flow.facade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import flow.workflow.App12Workflow;
+import flow.workflow.App1Workflow;
+import flow.workflow.App2Workflow;
 import query.ClientRequest;
 import query.ClientResponse;
 import flow.workflow.WorkflowManager;
@@ -28,7 +31,12 @@ public class SampleResource {
 
         WorkflowManager sample = WorkflowManager.getInstance();
 
-        ClientResponse response = sample.getScore(request);
+        new App1Workflow();
+        new App2Workflow();
+        new App12Workflow();
+
+
+        ClientResponse response = sample.getWorkflow(request).execute(request);
 
 
 
