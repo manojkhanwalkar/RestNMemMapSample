@@ -1,6 +1,8 @@
 package flow.facade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import flow.transform.App1Transform;
+import flow.transform.App2Transform;
 import flow.transport.App1Transport;
 import flow.transport.App2Transport;
 import flow.workflow.App12Workflow;
@@ -40,8 +42,9 @@ public class SampleResource {
 
         new App1Transport("localhost",11025,"APP1~C1");
         new App2Transport("localhost",12025,"APP2~C1");
-        // new App2Workflow();
-       // new App12Workflow();
+
+        new App1Transform("APP1~C1");
+        new App2Transform("APP2~C1");
 
 
         ClientResponse response = sample.getWorkflow(request).execute(request);
