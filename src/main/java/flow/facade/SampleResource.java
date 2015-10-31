@@ -1,4 +1,4 @@
-package rest;
+package flow.facade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import query.Request;

@@ -1,4 +1,4 @@
-package rest;
+package flow.facade;
 
 import io.dropwizard.Configuration;
 

@@ -1,6 +1,5 @@
-package sample;
+package flow.facade;
 
-import rest.SampleApplication;
 import server.Service;
 
 public class RestService implements Service {
