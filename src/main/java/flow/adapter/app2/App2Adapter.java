@@ -4,6 +4,9 @@ import client.SampleClient;
 import flow.adapter.Adapter;
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
+import flow.transport.Transport;
+import flow.transport.TransportManager;
+import query.ClientRequest;
 import query.Request;
 import query.Response;
 
@@ -16,16 +19,11 @@ public class App2Adapter implements Adapter {
     @Override
     public Response send(Request request) {
 
-        SampleClient client = SampleClient.getInstance();
+        Transport transport = TransportManager.getInstance().getTransport("APP2~C1");
+        App2Request request1 = new App2Request();
+        App2Response response1 = (App2Response) transport.send(request1);
 
-
-        client.setHost("localhost");
-        client.setPort(12025);
-
-        App2Request request2 = new App2Request();
-        App2Response response2 = client.send(request2);
-
-        return response2 ;
+        return response1 ;
     }
 
 

@@ -65,20 +65,6 @@ public class RestConnector  {
         return response1.getBody();
     }
 
-    public App1Response send(App1Request request)
-    {
-        HttpEntity<App1Request> requestEntity = new HttpEntity<>(request);
-        ResponseEntity<App1Response> response1 = restTemplate.exchange("http://" + host + ":" + port + "/app1", HttpMethod.POST, requestEntity, App1Response.class);
 
-        return response1.getBody();
-    }
-
-    public App2Response send(App2Request request)
-    {
-        HttpEntity<App2Request> requestEntity = new HttpEntity<>(request);
-        ResponseEntity<App2Response> response1 = restTemplate.exchange("http://" + host + ":" + port + "/app2", HttpMethod.POST, requestEntity, App2Response.class);
-
-        return response1.getBody();
-    }
 
 }

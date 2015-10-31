@@ -63,29 +63,7 @@ public class SampleClient {
     }
 
 
-    public App1Response send( App1Request request) {
 
-        RestConnector connector = new RestConnector(host, port);
-        try {
-            connector.connect();
-            return connector.send(request);
-        } finally {
-            connector.disconnect();
-        }
-
-    }
-
-    public App2Response send( App2Request request) {
-
-        RestConnector connector = new RestConnector(host, port);
-        try {
-            connector.connect();
-            return connector.send(request);
-        } finally {
-            connector.disconnect();
-        }
-
-    }
 
 
 

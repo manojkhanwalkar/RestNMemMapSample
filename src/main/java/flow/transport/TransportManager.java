@@ -20,15 +20,10 @@ public class TransportManager {
         transports.put(key,transport);
     }
 
-    private String extractKey(ClientRequest request)
-    {
-        return request.getEnvelope().getRequestType() + "~" + request.getEnvelope().getCliendId();
-    }
 
-    public Transport getTransport(ClientRequest request)
+    public Transport getTransport(String key)
     {
 
-        String key =  extractKey(request);
         Transport wf = transports.get(key);
 
 
