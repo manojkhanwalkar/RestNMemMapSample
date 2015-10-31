@@ -1,8 +1,11 @@
 package flow.workflow;
 
 import client.SampleClient;
+import flow.adapter.Adapter;
+import flow.adapter.app1.App1Adapter;
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
+import flow.adapter.app2.App2Adapter;
 import flow.adapter.app2.App2Request;
 import flow.adapter.app2.App2Response;
 import query.Payload;
@@ -23,24 +26,20 @@ public class WorkflowManager {
         ClientResponse response=new ClientResponse();
         Payload payload = new Payload();
 
-        SampleClient client = SampleClient.getInstance();
+        Adapter adapter1 = new App1Adapter();
+        App1Response response1 = (App1Response) adapter1.send(request);
 
-
-        client.setHost("localhost");
-        client.setPort(11025);
-
-        App1Request request1 = new App1Request();
-        App1Response response1 = client.send(request1);
         payload.set("App1Response",response1.getDummy() );
-        response.setPayload(payload);
 
-        client.setHost("localhost");
-        client.setPort(12025);
+        Adapter adapter2 = new App2Adapter();
+        App2Response response2 = (App2Response) adapter2.send(request);
 
-        App2Request request2 = new App2Request();
-        App2Response response2 = client.send(request2);
+        payload.set("App1Response",response1.getDummy() );
+
+
         payload.set("App2Response",response2.getDummy() );
         response.setPayload(payload);
+
 
         return response;
 
