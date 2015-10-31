@@ -41,4 +41,14 @@ public class Envelope {
     public void setVersion(String version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "Envelope{" +
+                "cliendId='" + cliendId + '\'' +
+                ", requestId=" + requestId +
+                ", requestType='" + requestType + '\'' +
+                ", version='" + version + '\'' +
+                '}';
+    }
 }

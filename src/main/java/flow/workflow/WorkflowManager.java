@@ -23,6 +23,9 @@ public class WorkflowManager {
 
 
     public ClientResponse getScore(ClientRequest request) {
+
+        System.out.println(request);
+
         ClientResponse response=new ClientResponse();
         Payload payload = new Payload();
 

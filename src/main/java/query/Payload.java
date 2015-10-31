@@ -22,4 +22,11 @@ public class Payload {
     {
         propertyValues.put(key,value);
     }
+
+    @Override
+    public String toString() {
+        return "Payload{" +
+                "propertyValues=" + propertyValues +
+                '}';
+    }
 }
