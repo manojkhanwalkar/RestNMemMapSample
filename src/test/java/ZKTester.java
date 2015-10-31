@@ -1,12 +1,12 @@
-import org.apache.zookeeper.*;
+//import org.apache.zookeeper.*;
 
 /**
  * Created by mkhanwalkar on 10/4/15.
  */
-public class ZKTester implements Watcher {
+public class ZKTester /*implements Watcher*/ {
 
 
-    public void test() throws Exception
+ /*   public void test() throws Exception
     {
         ZooKeeper zk = new ZooKeeper("localhost:2181",10000, this);
 
@@ -26,5 +26,5 @@ public class ZKTester implements Watcher {
     @Override
     public void process(WatchedEvent watchedEvent) {
         System.out.println(watchedEvent);
-    }
+    }*/
 }
