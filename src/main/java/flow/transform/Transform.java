@@ -11,6 +11,11 @@ public interface Transform {
     Request convert(Request request);
     Response convert(Response response);
 
+    public String getKey();
+
+    public void setKey(String key);
+
+
     // public Response transform(Request request);
 
 }

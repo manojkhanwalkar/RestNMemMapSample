@@ -9,10 +9,24 @@ import query.Response;
  */
 public class App1Transform implements Transform {
 
+    String key ;
 
-    public App1Transform(String key)
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(String key) {
+
+        this.key = key;
+    }
+
+
+
+    public App1Transform()
     {
-        TransformManager.getInstance().register(key,this);
+      //  TransformManager.getInstance().register(key,this);
     }
 
     @Override

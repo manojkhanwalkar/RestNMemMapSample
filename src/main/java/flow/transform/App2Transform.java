@@ -17,10 +17,24 @@ import query.Response;
  */
 public class App2Transform implements Transform {
 
+    String key ;
 
-    public App2Transform(String key)
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(String key) {
+
+        this.key = key;
+    }
+
+
+
+    public App2Transform()
     {
-        TransformManager.getInstance().register(key,this);
+     //   TransformManager.getInstance().register(key,this);
     }
 
     @Override

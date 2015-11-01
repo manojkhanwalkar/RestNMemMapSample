@@ -34,6 +34,12 @@
                 <ref bean="A2" />
             </list>
         </property>
+        <property name="transforms">
+            <list>
+                <ref bean="T1" />
+                <ref bean="T2" />
+            </list>
+        </property>
 
     </bean>
 
@@ -54,6 +60,12 @@
         <property name="key" value="APP2~C1" />
     </bean>
 
+    <bean id="T1" class="flow.transform.App1Transform">
+        <property name="key" value="APP1~C1" />
+    </bean>
+    <bean id="T2" class="flow.transform.App2Transform">
+        <property name="key" value="APP2~C1" />
+    </bean>
 
 
 
