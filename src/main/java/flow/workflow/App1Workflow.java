@@ -16,6 +16,18 @@ import query.Payload;
 public class App1Workflow implements Workflow {
 
 
+    String key ;
+
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(String key) {
+
+        this.key = key;
+    }
 
     public App1Workflow()
     {
@@ -27,8 +39,8 @@ public class App1Workflow implements Workflow {
     {
         //        return request.getEnvelope().getRequestType() + "~" + request.getEnvelope().getCliendId();
 
-        WorkflowManager manager = WorkflowManager.getInstance();
-        manager.register("APP1~C1", this);
+     /*   WorkflowManager manager = WorkflowManager.getInstance();
+        manager.register("APP1~C1", this);*/
     }
 
     @Override

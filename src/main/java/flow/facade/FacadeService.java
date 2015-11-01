@@ -1,6 +1,10 @@
 package flow.facade;
 
+import flow.workflow.Workflow;
+import flow.workflow.WorkflowManager;
 import server.Service;
+
+import java.util.List;
 
 public class FacadeService implements Service {
 
@@ -22,6 +26,13 @@ public class FacadeService implements Service {
     public void init() {
 
         try {
+
+            WorkflowManager manager = WorkflowManager.getInstance();
+
+            workflows.stream().forEach((l)->{
+                manager.register(l.getKey(), l);
+
+            });
             new SampleApplication().run("server", restConfigName);
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,5 +59,16 @@ public class FacadeService implements Service {
     @Override
     public String getName() {
         return name;
+    }
+
+
+    List<Workflow> workflows;
+
+    public List<Workflow> getWorkflows() {
+        return workflows;
+    }
+
+    public void setWorkflows(List<Workflow> workflows) {
+        this.workflows = workflows;
     }
 }

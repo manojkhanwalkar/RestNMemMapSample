@@ -10,4 +10,8 @@ public interface Workflow {
 
     public ClientResponse execute(ClientRequest request);
 
+    public String getKey();
+
+    public void setKey(String key);
+
 }

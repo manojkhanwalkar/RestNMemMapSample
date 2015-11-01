@@ -21,7 +21,24 @@
     <bean id="RestService" class="flow.facade.FacadeService">
         <property name="name" value="RestService" />
         <property name="restConfigName" value="/Users/mkhanwalkar/RestNMemMapSample/src/main/java/config/facade.yml" />
+        <property name="workflows">
+            <list>
+                <ref bean="WF1" />
+                <ref bean="WF2" />
+                <ref bean="WF12" />
+            </list>
+        </property>
 
+    </bean>
+
+    <bean id="WF1" class="flow.workflow.App1Workflow">
+    <property name="key" value="APP1~C1" />
+    </bean>
+    <bean id="WF2" class="flow.workflow.App2Workflow">
+        <property name="key" value="APP2~C1" />
+    </bean>
+    <bean id="WF12" class="flow.workflow.App12Workflow">
+        <property name="key" value="APP12~C1" />
     </bean>
 
 

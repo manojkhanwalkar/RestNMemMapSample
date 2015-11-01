@@ -37,10 +37,10 @@ public class SampleResource {
 
         WorkflowManager sample = WorkflowManager.getInstance();
 
-        new App1Workflow();
+ /*       new App1Workflow();
         new App2Workflow();
         new App12Workflow();
-
+*/
 
         new App1Adapter("APP1~C1");
         new App2Adapter("APP2~C1");
