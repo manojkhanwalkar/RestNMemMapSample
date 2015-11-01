@@ -10,19 +10,11 @@
     <bean id="ServiceList" class="server.ServiceList">
         <property name="listServices">
             <list>
-           <!--     <ref bean="DBService" />
-                <ref bean="DBQueryTest" /> -->
-              <!--  <ref bean="SampleService" /> -->
                 <ref bean="RestService" />
             </list>
         </property>
 
     </bean>
-
-
-   <!--     <bean id="webServiceClient" class="client.WSTester">
-            <property name="defaultUri" value="http://localhost:8080/WebService"/>
-        </bean> -->
 
 
 
