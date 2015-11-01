@@ -1,6 +1,7 @@
 package flow.workflow;
 
 import flow.adapter.Adapter;
+import flow.adapter.AdapterManager;
 import flow.adapter.app1.App1Adapter;
 import flow.adapter.app1.App1Response;
 import flow.adapter.app2.App2Adapter;
@@ -37,8 +38,9 @@ public class App2Workflow implements Workflow {
             Payload payload = new Payload();
 
 
-            Adapter adapter2 = new App2Adapter();
-            App2Response response2 = (App2Response) adapter2.send(request);
+        Adapter adapter2 = AdapterManager.getInstance().getAdapter("APP2~C1");
+
+        App2Response response2 = (App2Response) adapter2.send(request);
 
 
 

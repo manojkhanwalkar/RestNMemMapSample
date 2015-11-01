@@ -2,6 +2,7 @@ package flow.adapter.app2;
 
 import client.SampleClient;
 import flow.adapter.Adapter;
+import flow.adapter.AdapterManager;
 import flow.adapter.app1.App1Request;
 import flow.adapter.app1.App1Response;
 import flow.transform.Transform;
@@ -16,6 +17,13 @@ import query.Response;
  * Created by mkhanwalkar on 10/31/15.
  */
 public class App2Adapter implements Adapter {
+
+    public App2Adapter(String key)
+    {
+        AdapterManager.getInstance().register(key,this);
+
+    }
+
 
 
     @Override
