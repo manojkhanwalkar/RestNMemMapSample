@@ -18,9 +18,23 @@ import query.Response;
  */
 public class App2Adapter implements Adapter {
 
-    public App2Adapter(String key)
+    String key ;
+
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(String key) {
+
+        this.key = key;
+    }
+
+
+    public App2Adapter()
     {
-        AdapterManager.getInstance().register(key,this);
+      //  AdapterManager.getInstance().register(key,this);
 
     }
 

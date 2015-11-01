@@ -42,8 +42,8 @@ public class SampleResource {
         new App12Workflow();
 */
 
-        new App1Adapter("APP1~C1");
-        new App2Adapter("APP2~C1");
+   /*     new App1Adapter("APP1~C1");
+        new App2Adapter("APP2~C1");*/
 
 
         new App1Transport("localhost",11025,"APP1~C1");

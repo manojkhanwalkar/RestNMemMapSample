@@ -1,5 +1,7 @@
 package flow.facade;
 
+import flow.adapter.Adapter;
+import flow.adapter.AdapterManager;
 import flow.workflow.Workflow;
 import flow.workflow.WorkflowManager;
 import server.Service;
@@ -29,10 +31,22 @@ public class FacadeService implements Service {
 
             WorkflowManager manager = WorkflowManager.getInstance();
 
-            workflows.stream().forEach((l)->{
+            workflows.forEach((l)->{
                 manager.register(l.getKey(), l);
 
             });
+
+           AdapterManager adaptermanager = AdapterManager.getInstance();
+
+            adapters.forEach((l) -> {
+                adaptermanager.register(l.getKey(),l);
+            });
+
+            // Tranformer
+
+            // Transport
+
+
             new SampleApplication().run("server", restConfigName);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,5 +84,15 @@ public class FacadeService implements Service {
 
     public void setWorkflows(List<Workflow> workflows) {
         this.workflows = workflows;
+    }
+
+    List<Adapter> adapters;
+
+    public List<Adapter> getAdapters() {
+        return adapters;
+    }
+
+    public void setAdapters(List<Adapter> adapters) {
+        this.adapters = adapters;
     }
 }

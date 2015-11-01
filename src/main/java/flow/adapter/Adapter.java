@@ -9,5 +9,9 @@ import query.Response;
 public interface Adapter {
 
     public Response send(Request request);
+    public String getKey();
+
+    public void setKey(String key);
+
 
 }
