@@ -5,6 +5,7 @@ import flow.adapter.AdapterManager;
 import flow.transform.Transform;
 import flow.transform.TransformManager;
 import flow.transport.Transport;
+import flow.transport.TransportManager;
 import flow.workflow.Workflow;
 import flow.workflow.WorkflowManager;
 import server.Service;
@@ -51,9 +52,11 @@ public class FacadeService implements Service {
                 transformManager.register(l.getKey(),l);
             });
 
-            // Tranformer
+            TransportManager transportManager = TransportManager.getInstance();
+            transports.forEach((l)->{
 
-            // Transport
+                transportManager.register(l.getKey(),l);
+            });
 
 
             new SampleApplication().run("server", restConfigName);
@@ -113,5 +116,15 @@ public class FacadeService implements Service {
 
     public void setTransforms(List<Transform> transforms) {
         this.transforms = transforms;
+    }
+
+    List<Transport> transports;
+
+    public List<Transport> getTransports() {
+        return transports;
+    }
+
+    public void setTransports(List<Transport> transports) {
+        this.transports = transports;
     }
 }

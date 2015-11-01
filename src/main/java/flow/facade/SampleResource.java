@@ -46,8 +46,8 @@ public class SampleResource {
         new App2Adapter("APP2~C1");*/
 
 
-        new App1Transport("localhost",11025,"APP1~C1");
-        new App2Transport("localhost",12025,"APP2~C1");
+    /*    new App1Transport("localhost",11025,"APP1~C1");
+        new App2Transport("localhost",12025,"APP2~C1");*/
 
        /* new App1Transform("APP1~C1");
         new App2Transform("APP2~C1");*/

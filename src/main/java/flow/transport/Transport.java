@@ -12,4 +12,10 @@ public interface  Transport {
 
     public Response send(Request request);
 
+    public String getKey();
+
+    public void setKey(String key);
+
+
+
 }

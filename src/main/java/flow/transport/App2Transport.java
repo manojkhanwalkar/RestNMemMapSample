@@ -18,14 +18,39 @@ public class App2Transport implements Transport {
 
     String host ;
     int port ;
+    String key ;
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     RestTemplate restTemplate ;
 
-    public App2Transport(String host, int port, String key)
+    public App2Transport()
     {
-        this.host = host ;
-        this.port = port ;
-        TransportManager.getInstance().register(key,this);
+ //       TransportManager.getInstance().register(key,this);
     }
 
     public void connect() {
