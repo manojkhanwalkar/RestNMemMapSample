@@ -50,7 +50,7 @@
     </bean>
 
     <bean id="WF1" class="flow.workflow.App1Workflow">
-         <property name="key" value="APP1~C1" />
+         <property name="key" value="APP1~C1,APP1~C2,APP1~C3,APP1~C4" />
          <property name="firstStep" ref="firstStep" />
     </bean>
 
@@ -83,21 +83,21 @@
     </bean>
 
     <bean id="A1" class="flow.adapter.app1.App1Adapter">
-        <property name="key" value="APP1~C1" />
+        <property name="key" value="APP1~C1,APP1~C2" />
     </bean>
     <bean id="A2" class="flow.adapter.app2.App2Adapter">
         <property name="key" value="APP2~C1" />
     </bean>
 
     <bean id="T1" class="flow.transform.App1Transform">
-        <property name="key" value="APP1~C1" />
+        <property name="key" value="APP1~C1,APP1~C2" />
     </bean>
     <bean id="T2" class="flow.transform.App2Transform">
         <property name="key" value="APP2~C1" />
     </bean>
 
     <bean id="TR1" class="flow.transport.App1Transport">
-        <property name="key" value="APP1~C1" />
+        <property name="key" value="APP1~C1,APP1~C2" />
         <property name="host" value="localhost" />
         <property name="port" value="11025" />
     </bean>

@@ -8,7 +8,7 @@ import query.Response;
  */
 public interface Adapter {
 
-    public Response send(Request request);
+    public Response send(String adapterKey, Request request);
     public String getKey();
 
     public void setKey(String key);

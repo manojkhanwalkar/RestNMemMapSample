@@ -2,9 +2,6 @@ package flow.workflow;
 
 import flow.adapter.Adapter;
 import flow.adapter.AdapterManager;
-import flow.adapter.app1.App1Adapter;
-import flow.adapter.app1.App1Response;
-import flow.adapter.app2.App2Adapter;
 import flow.adapter.app2.App2Response;
 import query.ClientRequest;
 import query.ClientResponse;
@@ -54,7 +51,7 @@ public class App2Workflow extends Workflow {
 
         Adapter adapter2 = AdapterManager.getInstance().getAdapter("APP2~C1");
 
-        App2Response response2 = (App2Response) adapter2.send(request);
+        App2Response response2 = (App2Response) adapter2.send("APP2~C1", request);
 
 
 

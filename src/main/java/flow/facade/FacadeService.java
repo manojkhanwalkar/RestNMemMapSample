@@ -36,26 +36,37 @@ public class FacadeService implements Service {
             WorkflowManager manager = WorkflowManager.getInstance();
 
             workflows.forEach((l)->{
-                manager.register(l.getKey(), l);
+                String[] keys = l.getKey().split(",");
+                for (String k : keys) {
+                    manager.register(k, l);
+                }
 
             });
 
            AdapterManager adaptermanager = AdapterManager.getInstance();
 
             adapters.forEach((l) -> {
-                adaptermanager.register(l.getKey(), l);
+                String[] keys = l.getKey().split(",");
+                for (String k : keys) {
+                    adaptermanager.register(k, l);
+                }
             });
 
             TransformManager transformManager = TransformManager.getInstance();
 
             transforms.forEach((l)->{
-                transformManager.register(l.getKey(),l);
+                String[] keys = l.getKey().split(",");
+                for (String k : keys) {
+                    transformManager.register(k, l);
+                }
             });
 
             TransportManager transportManager = TransportManager.getInstance();
             transports.forEach((l)->{
-
-                transportManager.register(l.getKey(),l);
+                String[] keys = l.getKey().split(",");
+                for (String k : keys) {
+                    transportManager.register(k, l);
+                }
             });
 
 

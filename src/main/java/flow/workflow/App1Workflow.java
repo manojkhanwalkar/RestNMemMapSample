@@ -37,10 +37,6 @@ public class App1Workflow extends Workflow {
 
     public  void init()
     {
-        //        return request.getEnvelope().getRequestType() + "~" + request.getEnvelope().getCliendId();
-
-     /*   WorkflowManager manager = WorkflowManager.getInstance();
-        manager.register("APP1~C1", this);*/
     }
 
     @Override

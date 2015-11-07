@@ -1,12 +1,11 @@
 package flow.adapter.app1;
 
-import client.SampleClient;
 import flow.adapter.Adapter;
-import flow.adapter.AdapterManager;
 import flow.transform.Transform;
 import flow.transform.TransformManager;
 import flow.transport.Transport;
 import flow.transport.TransportManager;
+import flow.util.KeyCreator;
 import query.ClientRequest;
 import query.Request;
 import query.Response;
@@ -38,13 +37,16 @@ public class App1Adapter implements Adapter {
 
 
     @Override
-    public Response send(Request request) {
+    public Response send(String adapterKey, Request req) {
 
-        Transform transform = TransformManager.getInstance().getTransform("APP1~C1");
+        ClientRequest request = (ClientRequest) req;
+
+
+        Transform transform = TransformManager.getInstance().getTransform(adapterKey);
 
         App1Request request1 = (App1Request) transform.convert(request);
 
-        Transport transport = TransportManager.getInstance().getTransport("APP1~C1");
+        Transport transport = TransportManager.getInstance().getTransport(adapterKey);
         App1Response response1 = (App1Response) transport.send(request1);
 
         Response response = transform.convert(response1);
