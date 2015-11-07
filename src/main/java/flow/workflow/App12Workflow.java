@@ -13,7 +13,7 @@ import query.Payload;
 /**
  * Created by mkhanwalkar on 10/31/15.
  */
-public class App12Workflow implements Workflow {
+public class App12Workflow extends Workflow {
 
     String key ;
 
