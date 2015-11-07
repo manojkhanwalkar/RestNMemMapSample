@@ -17,9 +17,41 @@ public class  Step {
     Step trueStep;
     Step falseStep;
 
+    public Decision getDecision() {
+        return decision;
+    }
+
+    public void setDecision(Decision decision) {
+        this.decision = decision;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+    public Step getTrueStep() {
+        return trueStep;
+    }
+
+    public void setTrueStep(Step trueStep) {
+        this.trueStep = trueStep;
+    }
+
+    public Step getFalseStep() {
+        return falseStep;
+    }
+
+    public void setFalseStep(Step falseStep) {
+        this.falseStep = falseStep;
+    }
+
     public boolean execute(Request request , Response response)
     {
-        activity.execute(request,response);
+        activity.execute(request, response);
         boolean result = decision.execute(request,response);
 
         if (result&&trueStep!=null)
