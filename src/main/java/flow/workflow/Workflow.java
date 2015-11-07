@@ -6,12 +6,21 @@ import query.ClientResponse;
 /**
  * Created by mkhanwalkar on 10/31/15.
  */
-public interface Workflow {
+public abstract class  Workflow {
 
-    public ClientResponse execute(ClientRequest request);
+    public abstract ClientResponse execute(ClientRequest request);
 
-    public String getKey();
+    public abstract String getKey();
 
-    public void setKey(String key);
+    public abstract void setKey(String key);
 
+    Step firstStep;
+
+    public Step getFirstStep() {
+        return firstStep;
+    }
+
+    public void setFirstStep(Step firstStep) {
+        this.firstStep = firstStep;
+    }
 }
