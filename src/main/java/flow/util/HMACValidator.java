@@ -25,7 +25,7 @@ public class HMACValidator {
     //TODO - Client sends hmac in envelope
     //TODO - Activity to validate HMAC
     //TODO - Decision based on HMAC validity
-    // TODO - Persist request to Aerospike , might need a unique request id as key , persist both envelope and payload .
+    // TODO - Persist request to Aerospike , might need a unique request id as key ,persist both envelope and payload .
 
 
 }
