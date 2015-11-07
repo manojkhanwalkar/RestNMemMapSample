@@ -32,6 +32,7 @@ public class App1Transform implements Transform {
     @Override
     public Request convert(Request request) {
         App1Request request1 = new App1Request();
+        request1.setDummy(request.toString());
 
         return request1;
     }

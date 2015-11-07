@@ -16,4 +16,11 @@ public class App2Request implements Request {
     public void setDummy(String dummy) {
         this.dummy = dummy;
     }
+
+    @Override
+    public String toString() {
+        return "App2Request{" +
+                "dummy='" + dummy + '\'' +
+                '}';
+    }
 }

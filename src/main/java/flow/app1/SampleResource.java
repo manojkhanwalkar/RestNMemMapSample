@@ -27,8 +27,9 @@ public class SampleResource {
     public App1Response sayHello(@Context HttpServletRequest hsReq, @Valid App1Request request) {
 
 
+
         App1Response response = new App1Response();
-        response.setDummy("Hello from App1 " + new Date());
+        response.setDummy("Hello from App1 " + new Date() + " " + request.toString());
 
         return response;
 
