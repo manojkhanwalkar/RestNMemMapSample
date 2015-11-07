@@ -6,9 +6,6 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 
-/**
- * Created by mkhanwalkar on 11/7/15.
- */
 public class HMACValidator {
 
 
@@ -23,6 +20,12 @@ public class HMACValidator {
     public static void main(String [] args) throws Exception {
         System.out.println(encode("key", "The quick brown fox jumps over the lazy dog"));
     }
+
+    //TODO - HMAC configuration manager (client id / secret )
+    //TODO - Client sends hmac in envelope
+    //TODO - Activity to validate HMAC
+    //TODO - Decision based on HMAC validity
+    // TODO - Persist request to Aerospike , might need a unique request id as key , persist both envelope and payload .
 
 
 }
