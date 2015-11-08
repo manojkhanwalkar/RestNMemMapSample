@@ -46,6 +46,12 @@
                 <ref bean="TR2" />
             </list>
         </property>
+        <property name="hmacClientKeys">
+            <map>
+                <entry key="C1" value="KEY1" />
+            </map>
+        </property>
+
 
     </bean>
 

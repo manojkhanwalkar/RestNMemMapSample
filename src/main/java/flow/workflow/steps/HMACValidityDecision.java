@@ -1,5 +1,6 @@
 package flow.workflow.steps;
 
+import flow.util.HMACKeyManager;
 import flow.util.HMACValidator;
 import flow.workflow.Decision;
 import query.ClientRequest;
@@ -19,8 +20,7 @@ public class HMACValidityDecision implements Decision {
             ClientRequest request = (ClientRequest) req;
             Envelope envelope = request.getEnvelope();
             String hmacSrc = envelope.getHmac();
-            String hmacTgt = HMACValidator.encode("KEY1", envelope.getCliendId() + envelope.getRequestType());
-            //TODO - get key via HMAC key manager
+            String hmacTgt = HMACValidator.encode(HMACKeyManager.getInstance().getKey(envelope.getCliendId()), envelope.getCliendId() + envelope.getRequestType());
             if (hmacSrc.equals(hmacTgt))
                 return true;
             else

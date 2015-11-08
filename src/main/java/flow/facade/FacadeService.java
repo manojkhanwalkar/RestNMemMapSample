@@ -6,11 +6,13 @@ import flow.transform.Transform;
 import flow.transform.TransformManager;
 import flow.transport.Transport;
 import flow.transport.TransportManager;
+import flow.util.HMACKeyManager;
 import flow.workflow.Workflow;
 import flow.workflow.WorkflowManager;
 import server.Service;
 
 import java.util.List;
+import java.util.Map;
 
 public class FacadeService implements Service {
 
@@ -75,6 +77,8 @@ public class FacadeService implements Service {
             e.printStackTrace();
         }
 
+        HMACKeyManager.getInstance().setKeys(hmacClientKeys);
+
 
     }
 
@@ -137,5 +141,15 @@ public class FacadeService implements Service {
 
     public void setTransports(List<Transport> transports) {
         this.transports = transports;
+    }
+
+    Map<String,String> hmacClientKeys;
+
+    public Map<String, String> getHmacClientKeys() {
+        return hmacClientKeys;
+    }
+
+    public void setHmacClientKeys(Map<String, String> hmacClientKeys) {
+        this.hmacClientKeys = hmacClientKeys;
     }
 }
