@@ -60,7 +60,7 @@
         <property name="trueStep" ref="step1" />
     </bean>
 
-    <bean id="decision1" class="flow.workflow.steps.TrueDecision">
+    <bean id="decision1" class="flow.workflow.steps.HMACValidityDecision">
     </bean>
 
     <bean id="activity1" class="flow.workflow.steps.Activity1">

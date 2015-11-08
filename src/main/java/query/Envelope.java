@@ -9,6 +9,7 @@ public class Envelope {
     long requestId;
     String requestType;
     String version ;
+    String hmac;
 
     public String getCliendId() {
         return cliendId;
@@ -50,5 +51,13 @@ public class Envelope {
                 ", requestType='" + requestType + '\'' +
                 ", version='" + version + '\'' +
                 '}';
+    }
+
+    public void setHmac(String hmac) {
+        this.hmac = hmac;
+    }
+
+    public String getHmac() {
+        return hmac;
     }
 }
