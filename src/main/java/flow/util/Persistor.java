@@ -1,7 +1,18 @@
 package flow.util;
 
+import query.Request;
+import query.Response;
+
 /**
- * Created by mkhanwalkar on 11/7/15.
+ * Created by mkhanwalkar on 11/8/15.
  */
-public class Persistor {
+public interface Persistor {
+
+    public void init();
+
+    public void persist(Request request);
+
+    public void persist(Response response);
+
+    public void destroy();
 }
