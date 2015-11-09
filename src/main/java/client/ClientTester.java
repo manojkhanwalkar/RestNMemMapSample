@@ -39,16 +39,17 @@ public class ClientTester {
             System.out.println(mapper.writeValueAsString(response));
         }
 
-  /*      {
+        {
             ClientRequest request = new ClientRequest();
             Envelope envelope = new Envelope();
             envelope.setCliendId("C1");
+            envelope.setRequestId(System.nanoTime());
             envelope.setRequestType("APP12");
             request.setEnvelope(envelope);
             ClientResponse response = client.send(request);
             System.out.println(mapper.writeValueAsString(response));
         }
-*/
+
     }
 
 }
