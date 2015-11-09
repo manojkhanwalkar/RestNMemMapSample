@@ -49,13 +49,12 @@ public class AerospikePersistor implements Persistor {
 
     @Override
     public void persist(long id, String request) {
-            WritePolicy policy = new WritePolicy();
-            policy.sendKey = true;
 
-                Key key = new Key("test", "Request",id);
-                Bin bin = new Bin("Request", request);
-                client.put(policy, key, bin);
-
+        WritePolicy policy = new WritePolicy();
+        policy.sendKey = true;
+        Key key = new Key("test", "Request",id);
+        Bin bin = new Bin("Request", request);
+        client.put(policy, key, bin);
 
 
     }
@@ -82,12 +81,6 @@ public class AerospikePersistor implements Persistor {
         return Holder.factory;
 
     }
-
-
-
-
-
-
 
 
 
