@@ -10,7 +10,7 @@ public interface Persistor {
 
     public void init();
 
-    public void persist(Request request);
+    public void persist(long id, String request);
 
     public void persist(Response response);
 

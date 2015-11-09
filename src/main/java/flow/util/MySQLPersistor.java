@@ -19,8 +19,9 @@ public class MySQLPersistor implements Persistor{
 
     }
 
+
     @Override
-    public void persist(Request request) {
+    public void persist(long id, String request) {
 
     }
 

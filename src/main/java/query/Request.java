@@ -5,7 +5,7 @@ package query;
  */
 public interface Request {
 
-    public default long getRequestId()
+ /*   public default long getRequestId()
     {
         return -1;
     }
@@ -17,6 +17,6 @@ public interface Request {
      public default String jsonString()
      {
          return this.toString();
-     }
+     }*/
 
 }

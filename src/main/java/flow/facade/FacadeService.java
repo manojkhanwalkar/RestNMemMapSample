@@ -6,6 +6,7 @@ import flow.transform.Transform;
 import flow.transform.TransformManager;
 import flow.transport.Transport;
 import flow.transport.TransportManager;
+import flow.util.AerospikePersistor;
 import flow.util.HMACKeyManager;
 import flow.workflow.Workflow;
 import flow.workflow.WorkflowManager;
@@ -78,6 +79,13 @@ public class FacadeService implements Service {
         }
 
         HMACKeyManager.getInstance().setKeys(hmacClientKeys);
+
+        AerospikePersistor persistor =  AerospikePersistor.getInstance();
+        persistor.setHostName("localhost");
+        persistor.setPort(3000);
+
+        persistor.init();
+
 
 
     }

@@ -1,6 +1,9 @@
 package query;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,5 +36,17 @@ Envelope envelope;
                 "envelope=" + envelope +
                 ", payload=" + payload +
                 '}';
+    }
+
+    static ObjectMapper mapper = new ObjectMapper();
+
+
+    public static String jsonString(ClientRequest request) {
+        try {
+            return mapper.writeValueAsString(request);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

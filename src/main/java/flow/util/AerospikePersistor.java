@@ -13,7 +13,7 @@ import query.Response;
  */
 public class AerospikePersistor implements Persistor {
 
-    public AerospikePersistor()
+    private AerospikePersistor()
     {
 
     }
@@ -48,12 +48,12 @@ public class AerospikePersistor implements Persistor {
     }
 
     @Override
-    public void persist(Request request) {
+    public void persist(long id, String request) {
             WritePolicy policy = new WritePolicy();
             policy.sendKey = true;
 
-                Key key = new Key("test", "Request", request.getRequestId());
-                Bin bin = new Bin("Request", request.jsonString());
+                Key key = new Key("test", "Request",id);
+                Bin bin = new Bin("Request", request);
                 client.put(policy, key, bin);
 
 
@@ -72,19 +72,22 @@ public class AerospikePersistor implements Persistor {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        AerospikePersistor persistor = new AerospikePersistor();
-        persistor.setHostName("localhost");
-        persistor.setPort(3000);
-
-        persistor.init();
-
-        persistor.persist(new ClientRequest());
-
-        Thread.sleep(5000);
-
-        persistor.destroy();
+    static class Holder
+    {
+        static AerospikePersistor factory = new AerospikePersistor();
     }
+
+    public static AerospikePersistor getInstance()
+    {
+        return Holder.factory;
+
+    }
+
+
+
+
+
+
 
 
 

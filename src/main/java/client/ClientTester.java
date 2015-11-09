@@ -2,10 +2,7 @@ package client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import flow.util.HMACValidator;
-import query.ClientRequest;
-import query.ClientResponse;
-import query.Envelope;
-import query.Payload;
+import query.*;
 
 /**
  * Created by mkhanwalkar on 7/26/15.
@@ -26,6 +23,7 @@ public class ClientTester {
         {
             ClientRequest request = new ClientRequest();
             Envelope envelope = new Envelope();
+            envelope.setRequestId(System.nanoTime());
             envelope.setCliendId("C1");
             envelope.setRequestType("APP1");
             envelope.setHmac(HMACValidator.encode("KEY1",envelope.getCliendId()+envelope.getRequestType()));
@@ -35,6 +33,7 @@ public class ClientTester {
             payload.set("Prop2", "Value2");
             payload.set("Prop3", "Value3");
             request.setPayload(payload);
+
 
             ClientResponse response = client.send(request);
             System.out.println(mapper.writeValueAsString(response));
