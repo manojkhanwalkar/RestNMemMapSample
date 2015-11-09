@@ -63,7 +63,7 @@
     <bean id="firstStep" class="flow.workflow.Step">
         <property name="decision" ref="decision1" />
         <property name="activity" ref="activity1" />
-        <property name="trueStep" ref="step1" />
+        <property name="trueStep" ref="step2" />
     </bean>
 
     <bean id="decision1" class="flow.workflow.steps.HMACValidityDecision">
@@ -72,8 +72,8 @@
     <bean id="activity1" class="flow.workflow.steps.Activity1">
     </bean>
 
-    <bean id="step1" class="flow.workflow.Step">
-        <property name="decision" ref="decision1" />
+    <bean id="step2" class="flow.workflow.Step">
+    <!--    <property name="decision" ref="decision2" /> -->
         <property name="activity" ref="activity2" />
     </bean>
 

@@ -52,6 +52,10 @@ public class  Step {
     public boolean execute(Request request , Response response)
     {
         activity.execute(request, response);
+        if (decision==null)
+        {
+            return true ;
+        }
         boolean result = decision.execute(request,response);
 
         if (result&&trueStep!=null)
