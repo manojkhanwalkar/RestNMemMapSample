@@ -8,6 +8,7 @@ import flow.transport.Transport;
 import flow.transport.TransportManager;
 import flow.util.AerospikePersistor;
 import flow.util.HMACKeyManager;
+import flow.util.MySQLPersistor;
 import flow.workflow.Workflow;
 import flow.workflow.WorkflowManager;
 import server.Service;
@@ -86,6 +87,9 @@ public class FacadeService implements Service {
 
         persistor.init();
 
+        MySQLPersistor mySQLPersistor = MySQLPersistor.getInstance();
+        mySQLPersistor.init();
+
 
 
     }
@@ -93,8 +97,12 @@ public class FacadeService implements Service {
     @Override
     public void destroy() {
 
+        AerospikePersistor persistor =  AerospikePersistor.getInstance();
 
+        persistor.destroy();
 
+        MySQLPersistor mySQLPersistor = MySQLPersistor.getInstance();
+        mySQLPersistor.destroy();
 
     }
 
