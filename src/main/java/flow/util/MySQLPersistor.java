@@ -9,7 +9,7 @@ import query.Response;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class MySQLPersistor implements Persistor {
 
@@ -40,16 +40,12 @@ public class MySQLPersistor implements Persistor {
     @Override
     public synchronized void persist(long id, String request) {
 
-        try {
-            Statement stmt = connection.createStatement();
-            String s = "Hello World from facade";
-            int i= 500;
-
-           String sql = "INSERT INTO Request VALUES (" + (int)id + ",'" +  request + "')";
-           //   String sql = "INSERT INTO Request VALUES (" + id +  ")";
-            stmt.executeUpdate(sql);
-
-            stmt.close();
+        // Parameterized statement: the request JSON is attacker-controlled and must never be
+        // concatenated into SQL text.
+        try (PreparedStatement stmt = connection.prepareStatement("INSERT INTO Request VALUES (?, ?)")) {
+            stmt.setInt(1, (int) id);
+            stmt.setString(2, request);
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
