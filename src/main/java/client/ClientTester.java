@@ -13,6 +13,12 @@ public class ClientTester {
 
     public static void main(String[] args)  throws Exception {
 
+        // Must match the facade's FACADE_HMAC_KEY_C1.
+        String hmacKey = System.getenv("FACADE_HMAC_KEY_C1");
+        if (hmacKey == null || hmacKey.isEmpty()) {
+            throw new IllegalStateException("Set FACADE_HMAC_KEY_C1 to the HMAC secret for client C1");
+        }
+
         SampleClient client = SampleClient.getInstance();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -26,7 +32,7 @@ public class ClientTester {
             envelope.setRequestId(System.nanoTime());
             envelope.setCliendId("C1");
             envelope.setRequestType("APP1");
-            envelope.setHmac(HMACValidator.encode("KEY1",envelope.getCliendId()+envelope.getRequestType()));
+            envelope.setHmac(HMACValidator.encode(hmacKey,envelope.getCliendId()+envelope.getRequestType()));
             request.setEnvelope(envelope);
             Payload payload = new Payload();
             payload.set("Prop1", "Value1");
@@ -45,6 +51,7 @@ public class ClientTester {
             envelope.setCliendId("C1");
             envelope.setRequestId(System.nanoTime());
             envelope.setRequestType("APP12");
+            envelope.setHmac(HMACValidator.encode(hmacKey,envelope.getCliendId()+envelope.getRequestType()));
             request.setEnvelope(envelope);
             ClientResponse response = client.send(request);
             System.out.println(mapper.writeValueAsString(response));

@@ -15,7 +15,16 @@ public class HMACKeyManager {
     Map<String,String> keys = new HashMap<>();
 
     public void setKeys(Map<String, String> keys) {
-        this.keys = keys;
+        // Entries whose value is missing (e.g. the env var is unset) are dropped, so that client fails closed.
+        Map<String, String> copy = new HashMap<>();
+        if (keys != null) {
+            keys.forEach((k, v) -> {
+                if (k != null && v != null && !v.isEmpty()) {
+                    copy.put(k, v);
+                }
+            });
+        }
+        this.keys = copy;
     }
 
     public void register(String clientId, String key)

@@ -1,26 +1,18 @@
 package flow.facade;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import flow.adapter.app1.App1Adapter;
-import flow.adapter.app2.App2Adapter;
-import flow.transform.App1Transform;
-import flow.transform.App2Transform;
-import flow.transport.App1Transport;
-import flow.transport.App2Transport;
-import flow.workflow.App12Workflow;
-import flow.workflow.App1Workflow;
-import flow.workflow.App2Workflow;
+import flow.workflow.Workflow;
+import flow.workflow.WorkflowManager;
+import flow.workflow.steps.HMACValidityDecision;
 import query.ClientRequest;
 import query.ClientResponse;
-import flow.workflow.WorkflowManager;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/sample")
 @Produces(MediaType.APPLICATION_JSON)
@@ -29,21 +21,24 @@ public class SampleResource {
     public SampleResource() {
     }
 
-
-    static ObjectMapper mapper = new ObjectMapper();
-
     @POST
-    public ClientResponse sayHello(@Context HttpServletRequest hsReq, @Valid ClientRequest request) {
+    public ClientResponse sayHello(@Valid ClientRequest request) {
 
-        WorkflowManager sample = WorkflowManager.getInstance();
+        if (request == null || request.getEnvelope() == null) {
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
+        }
 
+        // Every workflow forwards to a backend service, so every request must carry a valid
+        // HMAC for its client id before any workflow (including persistence) runs.
+        if (!HMACValidityDecision.isValid(request.getEnvelope())) {
+            throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+        }
 
+        Workflow workflow = WorkflowManager.getInstance().getWorkflow(request);
+        if (workflow == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
 
-
-        ClientResponse response = sample.getWorkflow(request).execute(request);
-
-
-
-        return response;
+        return workflow.execute(request);
     }
 }

@@ -7,5 +7,6 @@ server:
   adminConnectors:
     - type: http
       port: 10091
+      bindHost: 127.0.0.1  # admin tasks/metrics are unauthenticated
 messages:
   hello: Hello world!

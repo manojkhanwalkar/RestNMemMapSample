@@ -48,7 +48,9 @@
         </property>
         <property name="hmacClientKeys">
             <map>
-                <entry key="C1" value="KEY1" />
+                <!-- HMAC secret for client C1 is read from the FACADE_HMAC_KEY_C1 environment variable.
+                     If it is unset, requests from C1 are rejected. -->
+                <entry key="C1" value="#{systemEnvironment['FACADE_HMAC_KEY_C1']}" />
             </map>
         </property>
 

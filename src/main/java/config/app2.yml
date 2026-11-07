@@ -4,8 +4,10 @@ server:
   applicationConnectors:
     - type: http
       port: 12025
+      bindHost: 127.0.0.1  # internal backend, only the facade (localhost) calls it
   adminConnectors:
     - type: http
       port: 12091
+      bindHost: 127.0.0.1  # admin tasks/metrics are unauthenticated
 messages:
   hello: Hello world!

@@ -74,12 +74,13 @@ public class FacadeService implements Service {
             });
 
 
+            // Keys must be in place before the HTTP endpoint starts accepting requests.
+            HMACKeyManager.getInstance().setKeys(hmacClientKeys);
+
             new SampleApplication().run("server", restConfigName);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        HMACKeyManager.getInstance().setKeys(hmacClientKeys);
 
         AerospikePersistor persistor =  AerospikePersistor.getInstance();
         persistor.setHostName("localhost");
